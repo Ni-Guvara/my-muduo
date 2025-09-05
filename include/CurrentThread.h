@@ -1,10 +1,10 @@
 #pragma once
 
 #include <unistd.h>
-#include <sys/syscall.h> 
+#include <sys/syscall.h>
 
-
-namespace CurrentThread{
+namespace CurrentThread
+{
 
     extern __thread int t_cachedTid;
 
@@ -12,7 +12,7 @@ namespace CurrentThread{
 
     inline int tid()
     {
-        if(__builtin_expect(t_cachedTid == 0, 0))
+        if (__builtin_expect(t_cachedTid == 0, 0))
         {
             cacheTid();
         }
